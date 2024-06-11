@@ -15,6 +15,11 @@ let pru3_rate = 1;
 let pru3_pched = 0;
 let pru3_price = 10000;
 
+let pru4_amount = 0;
+let pru4_rate = 1;
+let pru4_pched = 0;
+let pru4_price = 1000000;
+
 function updateValues() {
   document.getElementById('resource').innerText = numformat(resource);
   document.getElementById('prdpersec').innerText = numformat(prdpersec);
@@ -33,6 +38,11 @@ function updateValues() {
   document.getElementById('pru3_rate').innerText = numformat(pru3_rate);
   document.getElementById('pru3_pched').innerText = pru3_pched;
   document.getElementById('pru3_price').innerText = numformat(pru3_price);
+
+  document.getElementById('pru4_amount').innerText = numformat(pru4_amount);
+  document.getElementById('pru4_rate').innerText = numformat(pru4_rate);
+  document.getElementById('pru4_pched').innerText = pru4_pched;
+  document.getElementById('pru4_price').innerText = numformat(pru4_price);
   
 }
 
@@ -72,6 +82,18 @@ function pru3_purchased() {
   }
 }
 
+function pru4_purchased() {
+  if (resource >= pru4_price) {
+    resource -= pru4_price;
+    pru4_amount += 1;
+    pru4_pched += 1;
+    if (pru4_pched%10 == 0) {
+      pru4_rate *= 2;
+      pru4_price *= 10000;
+    }
+  }
+}
+
 function numformat(num) {
   if (num >= 1000) {
     return num.toExponential(2);
@@ -82,9 +104,11 @@ function numformat(num) {
 setInterval(() => {
   resource += (pru1_amount*pru1_rate)/50;
   prdpersec = pru1_amount*pru1_rate;
-
-  pru1_amount += (pru2_amount*pru2_rate)/50;
-  pru2_amount += (pru3_amount*pru2_rate)/50;
-  
   updateValues();
 }, 20);
+
+setInterval(() => {
+  pru1_amount += (pru2_amount*pru2_rate);
+  pru2_amount += (pru3_amount*pru2_rate);
+  pru3_amount += (pru4_amount*pru3_rate);
+}, 1000);

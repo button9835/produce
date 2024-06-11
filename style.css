@@ -24,7 +24,7 @@
 }
 
 .producer {
-  width: 22.5%;
+  width: 23.5%;
   height: 250px;
   padding:15px;
   padding-top: 3px;
@@ -44,6 +44,14 @@
 
 #pru3_bd {
   border: 2px dotted yellow;
+}
+
+#pru4_bd {
+  border: 2px dotted lime;
+}
+
+.prubt_span {
+  background-color: transparent;
 }
 
 #pru_title {

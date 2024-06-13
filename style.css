@@ -26,7 +26,7 @@
 
 .producer {
   width: 23.5%;
-  height: 200px;
+  height: 28%;
   padding:15px;
   padding-top: 3px;
 }
@@ -141,7 +141,7 @@ input[type="radio"]:checked + .tab {
 
 .autobuy {
   width: 23.5%;
-  height: 160px;
+  height: 25%;
   padding:15px;
   padding-top: 3px;
 }

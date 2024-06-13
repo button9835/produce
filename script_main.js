@@ -27,19 +27,19 @@ function updatevalues() {
   document.getElementById('prdpersec').innerText = numformat(prdpersec);
 
   document.getElementById('pru1_amount').innerText = numformat_pruamount(pru1_amount);
-  document.getElementById('pru1_persec').innerText =" (+"+ numformat_pruamount(pru2_amount*pru2_rate)+")";
+  document.getElementById('pru1_persec').innerText =" (+"+ numformat_pruamount(pru2_amount*pru2_rate)+"/s)";
   document.getElementById('pru1_rate').innerText = numformat(pru1_rate);
   document.getElementById('pru1_pched').innerText = pru1_pched;
   document.getElementById('pru1_price').innerText = "가격 : " + numformat(pru1_price);
 
   document.getElementById('pru2_amount').innerText = numformat_pruamount(pru2_amount);
-  document.getElementById('pru2_persec').innerText =" (+"+ numformat_pruamount(pru3_amount*pru3_rate)+")";
+  document.getElementById('pru2_persec').innerText =" (+"+ numformat_pruamount(pru3_amount*pru3_rate)+"/s)";
   document.getElementById('pru2_rate').innerText = numformat(pru2_rate);
   document.getElementById('pru2_pched').innerText = pru2_pched;
   document.getElementById('pru2_price').innerText = "가격 : " + numformat(pru2_price);
 
   document.getElementById('pru3_amount').innerText = numformat_pruamount(pru3_amount);
-  document.getElementById('pru3_persec').innerText =" (+"+numformat_pruamount(pru4_amount*pru4_rate)+")";
+  document.getElementById('pru3_persec').innerText =" (+"+numformat_pruamount(pru4_amount*pru4_rate)+"/s)";
   document.getElementById('pru3_rate').innerText = numformat(pru3_rate);
   document.getElementById('pru3_pched').innerText = pru3_pched;
   document.getElementById('pru3_price').innerText = "가격 : " + numformat(pru3_price);

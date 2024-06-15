@@ -1,6 +1,6 @@
 let resource = 1;
-let forced_rate = 1;
-let rate_reinforce_requirement = 1e15;
+let forced_rate =  1;
+let rate_reinforce_requirement = 1e13;
 let exponent_reinforce_requirement = 3;
 let forced_expo = 1;
 
@@ -83,32 +83,34 @@ function save() {
 
 
 function updatevalues() {
-  document.getElementById('resource').innerText = numformat(resource);
-  document.getElementById('prdpersec').innerText = numformat(prdpersec);
+  document.getElementById('resource').innerText = numformat_22(resource);
+  document.getElementById('prdpersec').innerText = numformat_22(prdpersec);
 
-  document.getElementById('pru1_amount').innerText = numformat_pruamount(pru1_amount);
-  document.getElementById('pru1_persec').innerText =" (+"+ numformat_pruamount(pru2_amount*pru2_rate)+"/s)";
-  document.getElementById('pru1_rate').innerText = numformat(pru1_rate);
+  document.getElementById('pru1_amount').innerText = numformat_20(pru1_amount);
+  document.getElementById('pru1_persec').innerText =" (+"+ numformat_20(pru2_amount*pru2_rate)+"/s)";
+  document.getElementById('pru1_rate').innerText = numformat_22(pru1_rate);
   document.getElementById('pru1_pched').innerText = pru1_pched;
-  document.getElementById('pru1_price').innerText = "가격 : " + numformat(pru1_price);
+  document.getElementById('pru1_price').innerText = "가격 : " + numformat_22(pru1_price);
 
-  document.getElementById('pru2_amount').innerText = numformat_pruamount(pru2_amount);
-  document.getElementById('pru2_persec').innerText =" (+"+ numformat_pruamount(pru3_amount*pru3_rate)+"/s)";
-  document.getElementById('pru2_rate').innerText = numformat(pru2_rate);
+  document.getElementById('pru2_amount').innerText = numformat_20(pru2_amount);
+  document.getElementById('pru2_persec').innerText =" (+"+ numformat_20(pru3_amount*pru3_rate)+"/s)";
+  document.getElementById('pru2_rate').innerText = numformat_22(pru2_rate);
   document.getElementById('pru2_pched').innerText = pru2_pched;
-  document.getElementById('pru2_price').innerText = "가격 : " + numformat(pru2_price);
+  document.getElementById('pru2_price').innerText = "가격 : " + numformat_22(pru2_price);
 
-  document.getElementById('pru3_amount').innerText = numformat_pruamount(pru3_amount);
-  document.getElementById('pru3_persec').innerText =" (+"+numformat_pruamount(pru4_amount*pru4_rate)+"/s)";
-  document.getElementById('pru3_rate').innerText = numformat(pru3_rate);
+  document.getElementById('pru3_amount').innerText = numformat_20(pru3_amount);
+  document.getElementById('pru3_persec').innerText =" (+"+numformat_20(pru4_amount*pru4_rate)+"/s)";
+  document.getElementById('pru3_rate').innerText = numformat_22(pru3_rate);
   document.getElementById('pru3_pched').innerText = pru3_pched;
-  document.getElementById('pru3_price').innerText = "가격 : " + numformat(pru3_price);
+  document.getElementById('pru3_price').innerText = "가격 : " + numformat_22(pru3_price);
 
-  document.getElementById('pru4_amount').innerText = numformat_pruamount (pru4_amount);
-  document.getElementById('pru4_rate').innerText = numformat(pru4_rate);
+  document.getElementById('pru4_amount').innerText = numformat_20(pru4_amount);
+  document.getElementById('pru4_rate').innerText = numformat_22(pru4_rate);
   document.getElementById('pru4_pched').innerText = pru4_pched;
-  document.getElementById('pru4_price').innerText = "가격 : " + numformat(pru4_price);
-  
+  document.getElementById('pru4_price').innerText = "가격 : " + numformat_22(pru4_price);
+
+  document.getElementById('rate_reinforce_req').innerText = numformat_22(rate_reinforce_requirement) +"자원";
+  document.getElementById('exponent_reinforce_req').innerText =exponent_reinforce_requirement +"회";
 }
 
 function pru1_purchased() {
@@ -118,7 +120,7 @@ function pru1_purchased() {
     pru1_pched += 1;
     pru1_rate *= forced_expo;
     if (pru1_pched%10 == 0) {
-      pru1_rate *= 2*forced_expo;
+      pru1_rate *= 2;
       pru1_price *= 10;
     }
   }
@@ -131,7 +133,7 @@ function pru2_purchased() {
     pru2_pched += 1;
     pru2_rate *= forced_expo;
     if (pru2_pched%10 == 0) {
-      pru2_rate *= 2*forced_expo;
+      pru2_rate *= 2;
       pru2_price *= 100;
     }
   }
@@ -144,7 +146,7 @@ function pru3_purchased() {
     pru3_pched += 1;
     pru3_rate *= forced_expo;
     if (pru3_pched%10 == 0) {
-      pru3_rate *= 2*forced_expo;
+      pru3_rate *= 2;
       pru3_price *= 1000;
     }
   }
@@ -157,7 +159,7 @@ function pru4_purchased() {
     pru4_pched += 1;
     pru4_rate *= forced_expo;
     if (pru4_pched%10 == 0) {
-      pru4_rate *= 2*forced_expo;
+      pru4_rate *= 2;
       pru4_price *= 10000;
     }
   }
@@ -165,38 +167,38 @@ function pru4_purchased() {
 
 function rate_reinforce(requirement) {
   if (resource >= requirement) {
-    document.getElementById('rate_reinforce_bt').style.display = 'inline-block';
+    document.getElementById('rate_reinforce_bt').disabled = false;
   }
 }
 
 function exponent_reinforce() {
   if (Math.log2(forced_rate) >= exponent_reinforce_requirement) {
-    document.getElementById('exponent_reinforce_bt').style.display = 'inline-block';
+    document.getElementById('exponent_reinforce_bt').disabled = false;
   }
 }
 
-function numformat(num) {
+function numformat_22(num) {
   if (num >= 1000) {
     return num.toExponential(2);
   } 
   return num.toFixed(2).toString();
 }
 
-function numformat_pruamount(num) {
+function numformat_20(num) {
   if (num >= 1000) {
     return num.toExponential(2);
   }
   return num.toFixed(0).toString();
 }
 
-function numformat_autopersec(num) {
+function numformat_2(num) {
   return num.toFixed(2).toString();
 }
 
 function rate_reinforce_run() {
-  document.getElementById('rate_reinforce_bt').style.display = 'none';
+  document.getElementById('rate_reinforce_bt').disabled = true;
   forced_rate *= 2;
-  rate_reinforce_requirement *= 1e5;
+  rate_reinforce_requirement *= 1e4;
 
   resource = 1;
 
@@ -222,11 +224,11 @@ function rate_reinforce_run() {
 }
 
 function exponent_reinforce_run() {
-  document.getElementById('exponent_reinforce_bt').style.display = 'none';
+  document.getElementById('exponent_reinforce_bt').disabled = true;
 
   exponent_reinforce_requirement *= 2;
   forced_rate = 1;
-  rate_reinforce_requirement = 1e15;
+  rate_reinforce_requirement = 1e13;
   forced_expo *= 1.03;
 
   resource = 1;
@@ -256,12 +258,14 @@ function autobuy_tab() {
   document.getElementById('producers').style.display = 'none';
   document.getElementById('autobuys').style.display = 'flex';
   document.getElementById('autobuy_discription').style.display = 'block';
+  document.getElementById('reinforce').style.display = 'none';
 }
 
 function producers_tab() {
   document.getElementById('producers').style.display = 'flex';
   document.getElementById('autobuys').style.display = 'none';
   document.getElementById('autobuy_discription').style.display = 'none';
+  document.getElementById('reinforce').style.display = 'block';
 }
 
 let mainloop =  setInterval(() => {
@@ -272,16 +276,13 @@ let mainloop =  setInterval(() => {
   prdpersec = pru1_amount*pru1_rate;
   updatevalues();
   rate_reinforce(rate_reinforce_requirement);
-  exponent_reinforce()
+  exponent_reinforce();
+  infinity();
 }, 20);
 
 function infinity() {
   if (resource >= Infinity) {
     clearInterval(mainloop);
-    document.getElementById('resources').style.display = 'none';
-    document.getElementById('tabs').style.display = 'none';
-    document.getElementById('producers').style.display = 'none';
-    document.getElementById('autobuys').style.display = 'none';
     document.getElementById('end').style.display = 'block';
     document.getElementById('comming_soon').style.display = 'block';
   }

@@ -18,14 +18,14 @@ setInterval(() => {
 }, 20);
 
 function updatevalues_autobuy() {
-  document.getElementById('pru1_auto_upgrade').innerText ="가격 : 생산기1 "+numformat(autobuy_1_up_price)+"개";
-  document.getElementById('pru2_auto_upgrade').innerText ="가격 : 생산기2 "+numformat(autobuy_2_up_price)+"개";
-  document.getElementById('pru3_auto_upgrade').innerText ="가격 : 생산기3 "+numformat(autobuy_3_up_price)+"개";
-  document.getElementById('pru4_auto_upgrade').innerText ="가격 : 생산기4 "+numformat(autobuy_4_up_price)+"개";
-  document.getElementById('auto1_speed').innerText ="(현재 속도 : "+numformat_autopersec(pru1_auto_cool)+"밀리초)";
-  document.getElementById('auto2_speed').innerText ="(현재 속도 : "+numformat_autopersec(pru2_auto_cool)+"밀리초)";
-  document.getElementById('auto3_speed').innerText ="(현재 속도 : "+numformat_autopersec(pru3_auto_cool)+"밀리초)";
-  document.getElementById('auto4_speed').innerText ="(현재 속도 : "+numformat_autopersec(pru4_auto_cool)+"밀리초)";
+  document.getElementById('pru1_auto_upgrade').innerText ="가격 : 생산기1 "+numformat_22(autobuy_1_up_price)+"개";
+  document.getElementById('pru2_auto_upgrade').innerText ="가격 : 생산기2 "+numformat_22(autobuy_2_up_price)+"개";
+  document.getElementById('pru3_auto_upgrade').innerText ="가격 : 생산기3 "+numformat_22(autobuy_3_up_price)+"개";
+  document.getElementById('pru4_auto_upgrade').innerText ="가격 : 생산기4 "+numformat_22(autobuy_4_up_price)+"개";
+  document.getElementById('auto1_speed').innerText ="(현재 속도 : "+numformat_2(pru1_auto_cool)+"밀리초)";
+  document.getElementById('auto2_speed').innerText ="(현재 속도 : "+numformat_2(pru2_auto_cool)+"밀리초)";
+  document.getElementById('auto3_speed').innerText ="(현재 속도 : "+numformat_2(pru3_auto_cool)+"밀리초)";
+  document.getElementById('auto4_speed').innerText ="(현재 속도 : "+numformat_2(pru4_auto_cool)+"밀리초)";
 }
 
 function autobuy_1_unlock() {

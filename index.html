@@ -23,6 +23,9 @@
     <label for="autobuy_tab" class="tab">자동구매기</label>
   </div>
 
+  <h1 id="end" style="display: none;">자원이 무한개가 되었습니다.<br>이 게임은 이렇게 끝입니다.<br>플레이해 주셔서 감사합니다.</h1>
+  <p id="comming_soon" style="display: none; text-align: center; font-size: smaller;">어쩌면... 새로운 것이 추가될 수도...?</p>
+
   <div id="producers">
     <div class="producer" id="pru1_bd">
       <p class="pru_title">생산기 1</p>
@@ -88,10 +91,8 @@
   </div>
   <h3 id="autobuy_discription" class="autobuys">생산기 자동구매기는 각 생산기를 100개 이상 구매하면 해금됩니다.</h3>
   <div id="reinforce">
-    <button id="rate_reinforce_bt" onclick="rate_reinforce_run()">모든 생산기와 자원을 초기화하고<br>모든 생산기의 배율을 2배로 강화합니다.</button>
-    <button id="exponent_reinforce_bt" onclick="exponent_reinforce_run()">모든 생산기와 자원, 강화된 배율을 초기화하고<br>생산기를 구매할 때마다 배율을 1.03배씩 늘리도록 만듭니다.</button>
+    <button id="rate_reinforce_bt" onclick="rate_reinforce_run()" disabled><p style="font-size: x-large; margin: 0px; background-color: transparent;">배율 강화<br></p>모든 생산기와 자원을 초기화하고<br>모든 생산기의 배율을 2배로 강화합니다.<br>해금 조건 : <span id="rate_reinforce_req"> 자원</span></button>
+    <button id="exponent_reinforce_bt" onclick="exponent_reinforce_run()" disabled><p style="font-size: x-large; margin:0px; background-color: transparent;">지수 강화<br></p>생산기와 자원, 강화된 배율을 초기화하고<br>생산기를 구매할 때마다 배율을 1.03배씩 늘리도록 만듭니다.<br>해금 조건 : 배율 강화 <span id="exponent_reinforce_req">회</span> </button>
   </div>
-  <h1 id="end" style="display: none;">자원이 무한개가 되었습니다.<br>이 게임은 이렇게 끝입니다.<br>플레이해 주셔서 감사합니다.</h1>
-  <p id="comming_soon" style="display: none;">어쩌면... 새로운 것이 추가될 수도...?</p>
 </body>
 </html>
